@@ -2,10 +2,6 @@ package tests
 
 import (
 	"testing"
-
-	"github.com/stretchr/testify/assert"
-	"github.com/xieyx/game-server-ai/internal/models"
-	"github.com/xieyx/game-server-ai/internal/services"
 )
 
 func TestUserService_CreateUser_UsernameExists(t *testing.T) {

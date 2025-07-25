@@ -10,6 +10,7 @@ import (
 	"gorm.io/gorm"
 )
 
+// DB is the global database connection instance
 var DB *gorm.DB
 
 // ConnectDB connects to the database
