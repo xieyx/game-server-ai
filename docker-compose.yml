@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: game-server-ai-postgres
+    environment:
+      POSTGRES_DB: game_server_ai
+      POSTGRES_USER: game_user
+      POSTGRES_PASSWORD: game_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - game-network
+
+  redis:
+    image: redis:6-alpine
+    container_name: game-server-ai-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - game-network
+
+networks:
+  game-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
