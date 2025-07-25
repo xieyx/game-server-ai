@@ -34,7 +34,8 @@ func (s *UserService) CreateUser(input *models.UserCreateInput) (*models.User, e
 	}
 
 	// Check if email already exists
-	result = database.DB.Where("email = ?", input.Email).First(&existingUser)
+	var existingUserByEmail models.User
+	result = database.DB.Where("email = ?", input.Email).First(&existingUserByEmail)
 	if result.Error == nil {
 		return nil, fmt.Errorf("email already exists")
 	}
